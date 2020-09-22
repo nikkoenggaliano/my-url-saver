@@ -4,15 +4,15 @@
               <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Title</h4>
-                    <form class="form-sample" id="url_form">
+                  <h4 class="card-title">Tambahkan URL</h4>
+                    <form class="form-sample">
                       <div class="form-group">
-                        <label for="">Inputan</label>
+                        <label for="">Title URL</label>
                         <input type="text" class="form-control" placeholder="Masukan sesuatu">
                       </div>
                       <div class="form-group">
-                        <label for="" id="ip">Inputan</label>
-                        <input type="text" class="form-control" placeholder="Masukan sesuatu">
+                        <label for="" id="ip">Deskripsi</label>
+                        <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Masukan deskripsi"></textarea>
                       </div>
 
 
@@ -34,7 +34,14 @@
                           </div>
 
                       </div>
-                      
+
+                      <div id="url_form"></div>
+                      <div class="form-group" align="center">
+                        
+                        <div class="col-md-3">
+                        <input type="submit" class="form-control btn btn-success" value="Save URL">
+                        </div>
+                      </div>
 
                     </form>
                 </div>
@@ -47,9 +54,6 @@
     var id_url = 0;
     $(document).on('click', '#add_button', function(){
       id_url++;
-        //$("#url_form").append('<div id="nama'+id_url+'" class="form-group col-md-3"><label for="">Inputan</label><input type="text" class="form-control" placeholder="Masukan sesuatu"></div>');
-        //$("#url_form").append('<div id="url'+id_url+'" class="form-group col-md-7"><label for="">URL</label><input type="text" class="form-control" placeholder="Masukan URL"></div>');
-        //$("#url_form").append('<div id="btnrm'+id_url+'"  class="form-group col-md-2"><label for="">Submit</label><button id="'+id_url+'" class="form-control btn btn-danger btn_remove" type="button">Hapus</button></div>');
           $("#url_form").append('<div class="form-row" id="add_form'+id_url+'" style="display:none;"><div class="form-group col-md-3"><label for="">Nama</label><input type="text" name="nama[]" class="form-control" placeholder="Masukan sesuatu"></div><div class="form-group col-md-7"><label for="">URL</label><input type="text" name="url[]" class="form-control" placeholder="Masukan URL"></div><div class="form-group col-md-2"><label for="">Submit</label><button id="'+id_url+'" class="form-control btn btn-danger btn_remove" type="button">Hapus</button></div></div>');
           $("#add_form"+id_url).slideToggle('slow');
     });
@@ -58,9 +62,6 @@
 
         let button_id = $(this).attr("id");
         let add_form = "#add_form"+button_id;
-        //$("#add_form"+button_id).slideToggle('slow');
-        //$(add_form).remove();
-
         $("#add_form"+button_id).stop(1).animate({height: 0},500, function(){
           $(add_form).remove();  
         });
