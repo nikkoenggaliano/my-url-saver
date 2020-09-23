@@ -4,7 +4,7 @@
               <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <h4 class="card-title">Tambahkan URL</h4>
+                  <h4 class="card-title">Edit URL</h4>
                 <form class="form-sample" method="POST" action="#" autocomplete="off">
                   @csrf
                       <div class="form-group">
@@ -61,13 +61,13 @@
                       <div class="form-group col-md-3">
                         <input class="form-check-input" type="checkbox" {{$data->public ? 'checked' : ''}} name="public" value="true" id="defaultCheck1">
                         <label class="form-check-label" for="defaultCheck1">
-                          Apakah boleh publik melihat urlmu?
+                          Apakah boleh publik melihat urlmu? (Centang jika boleh)
                         </label>
                       </div>
                       <div class="form-group" align="center">
                         
                         <div class="col-md-3">
-                        <input type="submit" class="form-control btn btn-success" value="Save URL">
+                        <input type="submit" class="form-control btn btn-success" value="Edit URL">
                         </div>
                       </div>
 

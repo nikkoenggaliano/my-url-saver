@@ -40,7 +40,7 @@
                       <div class="form-group col-md-3">
                         <input class="form-check-input" type="checkbox" name="public" value="true" id="defaultCheck1">
                         <label class="form-check-label" for="defaultCheck1">
-                          Apakah boleh publik melihat urlmu?
+                          Apakah boleh publik melihat urlmu? (Centang jika boleh)
                         </label>
                       </div>
                       <div class="form-group" align="center">
