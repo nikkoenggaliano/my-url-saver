@@ -13,11 +13,13 @@ class CreateUrlModelsTable extends Migration
      */
     public function up()
     {
-        Schema::create('url_models', function (Blueprint $table) {
+        Schema::create('urls', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('uid');
             $table->string('title');
             $table->text('deskripsi');
-            $table->text('url');
+            $table->json('url');
+            $table->boolean('public');
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateUrlModelsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('url_models');
+        Schema::dropIfExists('urls');
     }
 }

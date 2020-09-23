@@ -29,6 +29,8 @@ Route::get('/test', function(){
 Route::prefix('user')->group(function(){
 
 	Route::get('add-url', [UrlController::class, 'index'])->name('user-add-url');
+	Route::post('save-add-url', [UrlController::class, 'save'])->name('user-save-add-url');
+	Route::get('edit-page-url/{id}', [UrlController::class, 'editPage'])->name('user-edit-url-page');
 
 
 });

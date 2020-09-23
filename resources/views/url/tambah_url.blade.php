@@ -5,14 +5,15 @@
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Tambahkan URL</h4>
-                    <form class="form-sample">
+                <form class="form-sample" method="POST" action="{{route('user-save-add-url')}}" autocomplete="off">
+                  @csrf
                       <div class="form-group">
                         <label for="">Title URL</label>
-                        <input type="text" class="form-control" placeholder="Masukan sesuatu">
+                        <input type="text" name="title" class="form-control" placeholder="Masukan sesuatu">
                       </div>
                       <div class="form-group">
                         <label for="" id="ip">Deskripsi</label>
-                        <textarea name="" id="" cols="30" rows="10" class="form-control" placeholder="Masukan deskripsi"></textarea>
+                        <textarea name="desc" id="" cols="30" rows="10" class="form-control" placeholder="Masukan deskripsi"></textarea>
                       </div>
 
 
@@ -29,13 +30,19 @@
                           </div>
 
                           <div class="form-group col-md-2">
-                            <label for="">Submit</label>
+                            <label for="">Action</label>
                             <button class="form-control btn btn-primary" type="button" id="add_button">Tambah</button>
                           </div>
 
                       </div>
 
                       <div id="url_form"></div>
+                      <div class="form-group col-md-3">
+                        <input class="form-check-input" type="checkbox" name="public" value="true" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                          Apakah boleh publik melihat urlmu?
+                        </label>
+                      </div>
                       <div class="form-group" align="center">
                         
                         <div class="col-md-3">
