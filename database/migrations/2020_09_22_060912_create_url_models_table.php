@@ -20,6 +20,7 @@ class CreateUrlModelsTable extends Migration
             $table->text('deskripsi');
             $table->json('url');
             $table->boolean('public');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

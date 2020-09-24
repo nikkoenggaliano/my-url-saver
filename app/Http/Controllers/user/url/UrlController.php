@@ -7,11 +7,28 @@ use Illuminate\Http\Request;
 use Validator;
 use \App\Models\UrlModel;
 use Auth;
+use DataTables;
 class UrlController extends Controller
 {
     
 	public function index(){
+		return view('url.list_url');
+	}
+
+
+	public function tambah(){
 		return view('url.tambah_url');
+	}
+
+	public function apiList(){
+		$model = new UrlModel;
+		$exec  = $model::find(1)->get();
+		return datatables()->of($exec)
+		->addColumn('urls', function($data){
+			$nama = json_decode($data->url);
+			return $nama;
+		})
+		->make(true);
 	}
 
 	public function save(Request $request){

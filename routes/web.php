@@ -28,9 +28,14 @@ Route::get('/test', function(){
 
 Route::prefix('user')->group(function(){
 
-	Route::get('add-url', [UrlController::class, 'index'])->name('user-add-url');
-	Route::post('save-add-url', [UrlController::class, 'save'])->name('user-save-add-url');
-	Route::get('edit-page-url/{id}', [UrlController::class, 'editPage'])->name('user-edit-url-page');
 
+	Route::prefix('url')->group(function(){
+		Route::get('api-list', [UrlController::class, 'apiList'])->name('user-list-api-url');
+		Route::get('list-url', [UrlController::class, 'index'])->name('user-list-url');
+		Route::get('add-url', [UrlController::class, 'tambah'])->name('user-add-url');
+		Route::post('save-add-url', [UrlController::class, 'save'])->name('user-save-add-url');
+		Route::get('edit-page-url/{id}', [UrlController::class, 'editPage'])->name('user-edit-url-page');
+	
+	});
 
 });

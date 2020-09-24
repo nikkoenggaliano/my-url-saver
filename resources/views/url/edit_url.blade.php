@@ -1,7 +1,7 @@
 @extends('template.template')
 @section('title', "Tambah URL")
 @section('content')
-              <div class="col-12 grid-margin stretch-card">
+            <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <h4 class="card-title">Edit URL</h4>
@@ -37,7 +37,7 @@
                             </div>
                           </div>
                         @else
-                        <div class="form-row" id="add_form{{$i}}">
+                        <div class="form-row"  id="add_form{{$i}}">
                             <div class="form-group col-md-3">
                               <label for="">Nama</label>
                             <input type="text" name="nama[]" value="{{$url[$i]['nama']}}" class="form-control" placeholder="Masukan sesuatu">
@@ -50,14 +50,15 @@
 
                             <div class="form-group col-md-2">
                               <label for="">Action</label>
-                            <button id="{{$i}}" class="form-control btn btn-danger btn_remove" type="button" id="add_button">Hapus</button>
+                            <button id="{{$i}}" class="form-control btn btn-danger btn_remove" type="button">Hapus</button>
                             </div>
                           </div>
+                        
                         @endif
                       @endfor
 
-
                       <div id="url_form"></div>
+                      
                       <div class="form-group col-md-3">
                         <input class="form-check-input" type="checkbox" {{$data->public ? 'checked' : ''}} name="public" value="true" id="defaultCheck1">
                         <label class="form-check-label" for="defaultCheck1">
@@ -79,8 +80,9 @@
 
 @push('scripts')
   <script>
-    var id_url = 0;
+    var id_url = {{count($url)}};
     $(document).on('click', '#add_button', function(){
+      console.log(id_url);
       id_url++;
           $("#url_form").append('<div class="form-row" id="add_form'+id_url+'" style="display:none;"><div class="form-group col-md-3"><label for="">Nama</label><input type="text" name="nama[]" class="form-control" placeholder="Masukan sesuatu"></div><div class="form-group col-md-7"><label for="">URL</label><input type="text" name="url[]" class="form-control" placeholder="Masukan URL"></div><div class="form-group col-md-2"><label for="">Submit</label><button id="'+id_url+'" class="form-control btn btn-danger btn_remove" type="button">Hapus</button></div></div>');
           $("#add_form"+id_url).slideToggle('slow');
