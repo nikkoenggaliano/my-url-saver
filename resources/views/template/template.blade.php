@@ -8,6 +8,7 @@
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ URL::asset('vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ URL::asset('vendors/css/vendor.bundle.base.css') }}">
+  @stack('css')
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <!-- End plugin css for this page -->
@@ -410,6 +411,7 @@
   <!-- endinject -->
   <!-- Custom js for this page-->
   <script src="{{ URL::asset('js/dashboard.js') }}"></script>
+  <script src="{{ URL::asset('js/data-table.js') }}"></script>
   <!-- End custom js for this page-->
   @stack('scripts')
 

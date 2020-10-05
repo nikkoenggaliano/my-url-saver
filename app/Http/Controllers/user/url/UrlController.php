@@ -8,6 +8,10 @@ use Validator;
 use \App\Models\UrlModel;
 use Auth;
 use DataTables;
+use DB;
+
+use function GuzzleHttp\Promise\queue;
+
 class UrlController extends Controller
 {
     
@@ -22,13 +26,21 @@ class UrlController extends Controller
 
 	public function apiList(){
 		$model = new UrlModel;
-		$exec  = $model::find(1)->get();
+		$uid = 1;
+		$query = "SELECT id,title,deskripsi FROM `urls` WHERE uid = :uid";
+		$exec = DB::select($query, ['uid' => $uid]);
+		#$exec  = $model::find($uid)->get();
 		return datatables()->of($exec)
-		->addColumn('urls', function($data){
-			$nama = json_decode($data->url);
-			return $nama;
-		})
+		// ->addColumn('urls', function($data){
+		// 	$nama = json_decode($data->url);
+		// 	return $nama;
+		// })
+		->addIndexColumn()
 		->make(true);
+	}
+
+	public function detailList($id){
+		
 	}
 
 	public function save(Request $request){
